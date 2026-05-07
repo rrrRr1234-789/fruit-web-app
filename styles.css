@@ -1,0 +1,468 @@
+:root {
+  color-scheme: light;
+  --bg: #fff7df;
+  --surface: #fffdf6;
+  --ink: #2b2418;
+  --muted: #756a57;
+  --line: #ead8a5;
+  --leaf: #2f8d55;
+  --leaf-dark: #1f6f43;
+  --orange: #ff9f1c;
+  --red: #ef476f;
+  --blue: #2d7dd2;
+  --shadow: 0 18px 45px rgba(102, 75, 24, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-width: 320px;
+  background:
+    linear-gradient(160deg, rgba(255, 207, 90, 0.42), transparent 36%),
+    linear-gradient(20deg, rgba(72, 184, 121, 0.16), transparent 38%),
+    var(--bg);
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+button,
+select {
+  font: inherit;
+}
+
+input,
+textarea {
+  font: inherit;
+}
+
+button,
+select,
+.fruit-card {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+select {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+.app-shell {
+  display: grid;
+  gap: 14px;
+  width: min(100%, 480px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 14px;
+}
+
+.hero,
+.recommend-card,
+.picker-panel,
+.today-box,
+.submit-panel {
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 253, 246, 0.94);
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 92px;
+  align-items: center;
+  gap: 12px;
+  padding: 18px;
+}
+
+.hero h1,
+.recommend-card h2,
+.today-box h2,
+.section-head h2,
+.fruit-card h3 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.hero h1 {
+  font-size: 30px;
+  line-height: 1.05;
+}
+
+.hero p,
+.recommend-card p,
+.fruit-card p {
+  margin: 7px 0 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--leaf-dark);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.basket {
+  position: relative;
+  height: 94px;
+  border: 2px solid #b86e2d;
+  border-top: 0;
+  border-radius: 0 0 8px 8px;
+  background:
+    linear-gradient(90deg, transparent 30%, rgba(184, 110, 45, 0.28) 30% 36%, transparent 36% 63%, rgba(184, 110, 45, 0.28) 63% 69%, transparent 69%),
+    #f4bd63;
+}
+
+.basket::before {
+  content: "";
+  position: absolute;
+  left: 19px;
+  right: 19px;
+  top: -23px;
+  height: 35px;
+  border: 6px solid #b86e2d;
+  border-bottom: 0;
+  border-radius: 36px 36px 0 0;
+}
+
+.mini-fruit {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  image-rendering: pixelated;
+}
+
+.mini-fruit.apple {
+  left: 10px;
+  top: 10px;
+  background: #ef476f;
+  box-shadow: 8px 0 #ef476f, 0 8px #d83f63, 8px 8px #d83f63, 8px -8px #6fbf5a;
+}
+
+.mini-fruit.grape {
+  left: 44px;
+  top: 20px;
+  background: #744fc6;
+  box-shadow: 10px 0 #744fc6, -5px 10px #5d3ba8, 5px 10px #744fc6, 15px 10px #5d3ba8;
+}
+
+.mini-fruit.mango {
+  left: 26px;
+  top: 50px;
+  width: 38px;
+  background: #ffb02e;
+  box-shadow: 8px 0 #ffb02e, 16px 8px #ff8f1f, 0 8px #ffc45c;
+}
+
+.recommend-card {
+  display: grid;
+  grid-template-columns: 78px 1fr 42px;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+}
+
+.pixel-frame {
+  display: grid;
+  place-items: center;
+  width: 78px;
+  height: 78px;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: #fff4c7;
+}
+
+canvas {
+  width: 58px;
+  height: 58px;
+  image-rendering: pixelated;
+}
+
+.round-button,
+.today-box button {
+  border: 0;
+  border-radius: 8px;
+  background: var(--leaf);
+  color: #fff;
+  font-weight: 900;
+}
+
+.round-button {
+  width: 42px;
+  height: 42px;
+  font-size: 22px;
+}
+
+.picker-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 12px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+select {
+  width: 100%;
+  min-height: 42px;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  padding: 0 10px;
+}
+
+.today-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px;
+}
+
+.today-box h2 {
+  font-size: 18px;
+}
+
+.today-box button {
+  min-width: 62px;
+  min-height: 38px;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 4px 2px 10px;
+}
+
+.section-head.compact {
+  margin: 0 0 12px;
+}
+
+.section-head h2 {
+  font-size: 22px;
+}
+
+#fruitCount {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.fruit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.fruit-card {
+  display: grid;
+  gap: 10px;
+  min-height: 234px;
+  padding: 10px;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  text-align: left;
+  color: var(--ink);
+}
+
+.fruit-card.selected {
+  border-color: var(--leaf);
+  box-shadow: inset 0 0 0 2px rgba(47, 141, 85, 0.18);
+}
+
+.fruit-card.recommended {
+  border-color: var(--orange);
+}
+
+.fruit-art {
+  display: grid;
+  place-items: center;
+  min-height: 94px;
+  border-radius: 8px;
+  background:
+    linear-gradient(45deg, rgba(255, 207, 90, 0.2) 25%, transparent 25% 75%, rgba(255, 207, 90, 0.2) 75%),
+    #fff8da;
+  background-size: 18px 18px;
+}
+
+.fruit-art canvas {
+  width: 72px;
+  height: 72px;
+}
+
+.fruit-card h3 {
+  font-size: 18px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 0;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0 7px;
+  border-radius: 6px;
+  background: #ecf7ef;
+  color: var(--leaf-dark);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.tag.hot {
+  background: #fff0cc;
+  color: #9a5a00;
+}
+
+.choose-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+  color: var(--leaf-dark);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.empty {
+  grid-column: 1 / -1;
+  padding: 24px;
+  border: 2px dashed var(--line);
+  border-radius: 8px;
+  background: rgba(255, 253, 246, 0.72);
+  color: var(--muted);
+  text-align: center;
+}
+
+.submit-panel {
+  padding: 14px;
+}
+
+.submit-panel form {
+  display: grid;
+  gap: 10px;
+}
+
+.submit-panel input,
+.submit-panel textarea {
+  width: 100%;
+  min-width: 0;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  padding: 10px 12px;
+}
+
+.submit-panel textarea {
+  resize: vertical;
+}
+
+.hidden-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.submit-button {
+  min-height: 44px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--orange);
+  color: #2b2418;
+  font-weight: 950;
+}
+
+.submit-status {
+  min-height: 20px;
+  margin: 0;
+  color: var(--leaf-dark);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.success-shell {
+  align-content: center;
+}
+
+.success-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 20px;
+}
+
+.success-card h1 {
+  margin: 0;
+  font-size: 30px;
+  letter-spacing: 0;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border-radius: 8px;
+  background: var(--leaf);
+  color: #fff;
+  font-weight: 950;
+  text-decoration: none;
+}
+
+@media (max-width: 380px) {
+  .app-shell {
+    padding: 10px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .basket {
+    width: 94px;
+  }
+
+  .recommend-card {
+    grid-template-columns: 66px 1fr 38px;
+  }
+
+  .pixel-frame {
+    width: 66px;
+    height: 66px;
+  }
+
+  .fruit-grid {
+    grid-template-columns: 1fr;
+  }
+}
